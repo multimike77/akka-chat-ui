@@ -1,0 +1,30 @@
+<template>
+  <div class="container chat-container">
+    <div class="row">
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">My Chatroom</div>
+          <div class="panel-body chat-content"></div>
+
+
+          <div class="row">
+            <div class="col-md-12">
+              <textarea name="userinput" id="userinput" cols="30" rows="4" class="form-control chat-input"
+                  value.bind="userInput"></textarea>
+            </div>
+
+          </div>
+          <div class="row submit-row">
+            <div class="col-md-2 col-md-offset-10">
+              <button type="button" class="btn btn-primary" id="send-btn" click.delegate="send()">Send</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</template>

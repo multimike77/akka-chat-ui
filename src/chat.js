@@ -11,10 +11,11 @@ export class Chat {
     this.auth = auth;
     this.userInput = '';
 
-    this.initEventSource();
+    this.evtSource = this.initEventSource();
   }
 
   initEventSource() {
+    console.log('initevtsource');
     var evtSource = new EventSource("/sse/");
     evtSource.onerror = function (e) {
       console.log('error', e);
@@ -34,6 +35,7 @@ export class Chat {
       Chat.addChatMessage(message);
     });
 
+    return evtSource;
   }
 
   send() {
@@ -42,6 +44,11 @@ export class Chat {
       console.log(success);
       this.userInput = '';
     });
+  }
+
+  deactivate() {
+    console.log('closing evt source');
+    this.evtSource.close();
   }
 
   static addChatMessage(content) {

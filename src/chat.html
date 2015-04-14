@@ -5,7 +5,13 @@
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading">My Chatroom</div>
-          <div class="panel-body chat-content"></div>
+          <div class="panel-body chat-content">
+
+            <div repeat.for="row of messages">
+              <span if.bind="row.name">${row.name}:</span>
+              <span>${row.msg}</span>
+            </div>
+          </div>
 
 
           <div class="row">
